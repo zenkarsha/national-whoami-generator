@@ -1,0 +1,99 @@
+---
+layout: default
+---
+
+<div id="app">
+  <div id="warning" v-show="is_mobile">
+    您目前正使用手機或平板瀏覽本站，建議使用桌面版開啟本網站，您可以複製本站連結：
+    <div class="share-link">
+      <input value="https://bit.ly/國家級我是誰" readonly="readonly" onclick="this.setSelectionRange(0, 9999)">
+      <span class="copy-button clipboard-button" data-clipboard-text="https://bit.ly/國家級我是誰">Copy</span>
+    </div>
+  </div>
+  <div id="preview">
+    <img class="lazy preview-image" v-bind:src="output_image" />
+    <div id="form">
+      <div class="fields-column-2 mobile-full-width">
+        <div class="form-group column">
+          <div class="form-input">
+            <div class="form-group">
+              <h3 v-text="'外表特徵'"></h3>
+              <input type="text" ref="question_text1" v-model="question_text1" v-on:focus="field_clean('question_text1', '手上拿警棍，頭上戴警盔')" />
+            </div>
+          </div>
+        </div>
+        <div class="form-group column">
+          <div class="form-input">
+            <div class="form-group">
+              <h3 v-text="'特性'"></h3>
+              <input type="text" ref="question_text2" v-model="question_text2" v-on:focus="field_clean('question_text2', '喜揮舞警棍，喜揍暴民')" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mobile-full-width">
+        <div class="form-group column">
+          <div class="form-input">
+            <div class="form-group">
+              <h3 v-text="'狀況'"></h3>
+              <input type="text" ref="question_text3" v-model="question_text3" v-on:focus="field_clean('question_text3', '安安大家好，我是電線桿，請問你有看過這個人嗎？')" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fields-column-2 mobile-full-width">
+        <div class="form-group column">
+          <h3 v-text="'上傳謎底圖片'"></h3>
+          <div class="fileupload-button">
+            <input type="file" v-on:change="local_preview($event, 'answer_image')" accept="image/*" ref="answer_image">
+            <button type="button" class="button danger full-width" v-on:click="$refs.answer_image.click()">
+              選擇圖片
+            </button>
+          </div>
+        </div>
+        <div class="form-group column">
+          <div class="form-input">
+            <div class="form-group">
+              <h3 v-text="'我是誰？'"></h3>
+              <input type="text" ref="answer_text" v-model="answer_text" v-on:focus="field_clean('answer_text', '打人警察')" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="download-buttons">
+        <download-button></download-button>
+      </div>
+    </div>
+  </div>
+  <div id="generator">
+    <canvas id="canvas" width="960" height="679"></canvas>
+    <div id="process-images">
+      <img id="answer_cover_image" v-bind:src="answer_cover_image" />
+      <img id="answer_image" v-bind:src="answer_image" />
+      <img id="pattern_image" v-bind:src="pattern_image" />
+      <img class="lazy" src="/images/basemap-1.png" />
+      <img class="lazy" src="/images/basemap-2.png" />
+      <img class="lazy" src="/images/example.jpg" />
+    </div>
+    <div id="output-container">
+      <div id="output-question">
+        <img class="basemap-image" v-bind:src="question_basemap_image" />
+        <div class="question-text-container">
+          <div class="question-text-wrapper">
+            <div class="question-text1" v-text="question_text1"></div>
+            <div class="question-text2" v-text="question_text2"></div>
+            <div class="question-text3" v-text="question_text3"></div>
+          </div>
+        </div>
+      </div>
+      <div id="output-answer">
+        <img class="basemap-image" v-bind:src="answer_basemap_image" />
+        <div class="answer-text-container">
+          <div class="answer-text-wrapper">
+            <div class="answer-text" v-text="answer_text"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+#header
+  position relative
+  width 100%
+  height 0
+  padding-top 260px
+  background-size contain
+  background-position center
+  background-repeat no-repeat
+  background-image url('/images/banner.png')
+  background-color #FFEB3B
+  margin-bottom 50px
+
+  &:after
+    content ''
+    position absolute
+    bottom -50px
+    left 0
+    right 0
+    height 50px
+    background #FFEB3B
+    z-index -1
+
+  +below(__)
+    background-size cover
+    padding-top 180px
+    margin-bottom 25px
+    &:after
+      bottom -25px
+      height 25px

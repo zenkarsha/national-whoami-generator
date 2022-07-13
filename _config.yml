@@ -1,0 +1,58 @@
+#==============================================================
+# Debug mode
+#==============================================================
+localhost: http://localhost:3000
+# debug : true
+debug : false
+
+
+#==============================================================
+# Maintain mode
+#==============================================================
+# maintain : true
+maintain : false
+
+
+#==============================================================
+# Administator info
+#==============================================================
+admin_name: KANGXI
+admin_email: hello@example.com
+
+
+#==============================================================
+# Site settings
+#==============================================================
+site_name         : 國家級我是誰產生器
+site_title        : 國家級我是誰產生器
+site_description  : ？？？？我是誰？？？？
+site_url          : https://national-whoami-generator.unlink.men
+site_version      : 1.0.1
+og_type           : website
+og_image          : https://national-whoami-generator.unlink.men/images/fb.jpg
+ga_track_id       : UA-124037846-3
+
+
+#==============================================================
+# Facebook APP
+#==============================================================
+fb_app_id: XXXXXXXXXXXXXXXX
+fb_app_version: v2.5
+
+
+#==============================================================
+# Build exclude
+#==============================================================
+exclude:
+  - gulpfile.js
+  - package.json
+  - node_modules
+  - assets
+
+
+#==============================================================
+# Html compress config
+#==============================================================
+compress_html:
+  clippings: all
+
